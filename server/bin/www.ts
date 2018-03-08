@@ -10,8 +10,6 @@ import { serverPort } from "../config";
 const WebSocket = require('ws');
 const HashMap = require('hashmap');
 let map = new HashMap();
-const rabbit = require('rabbot');
-import { rabbitConfig } from '../rabbitmq/config';
 
 /**
  * Get port from environment and store in Express.
@@ -161,79 +159,5 @@ function sendUserNotification(data) {
           }
       }
   });
-}
-
-var retryCounter = 0
-// Configure the rabbit mq connection, queues and bindings
-rabbit.handle({}, handleMessage);
-rabbit.configure(rabbitConfig);
-
-/**
- * Perform retry in case Rabbit MQ is not reachable.
- */
-rabbit.on('unreachable', function () {
-    console.log('RabbitMq: Host unreachable. Trying again -- ', ++retryCounter);
-    if(process.env.COEUS_ENVIRONMENT != "development") {
-        rabbit.retry();
-    }
-});
-
-/**
- * Perform retry in case Rabbit MQ connection is failed.
- */
-rabbit.on('failed', function () {
-    console.log('RabbitMq: Connection failed. Trying again -- ', ++retryCounter);
-    if(process.env.COEUS_ENVIRONMENT != "development") {
-        rabbit.retry();
-    }
-});
-
-/**
- * Start processing of messages when Rabbit MQ connection is successfull.
- */
-rabbit.on('connected', function () {
-    console.log('RabbitMq: Portal connected');
-});
-
-rabbit.on(rabbitConfig.connection.name + ".connection.opened", function () {
-    console.log('RabbitMq: Connection ' + rabbitConfig.connection.name + ' opened');
-});
-rabbit.on(rabbitConfig.connection.name + ".connection.closed", function () {
-    console.log('RabbitMq: Connection ' + rabbitConfig.connection.name + ' closed');
-});
-rabbit.on(rabbitConfig.connection.name + ".connection.failed", function () {
-    console.log('RabbitMq: Connection ' + rabbitConfig.connection.name + ' failed');
-    if(process.env.COEUS_ENVIRONMENT != "development") { 
-        rabbit.retry();
-    }
-});
-
-rabbit.on(rabbitConfig.connection.name + ".connection.configured", function (connection) {
-    Object.entries(connection.definitions.bindings).forEach(([key, value]) => {
-      console.log(`RabbitMq: Queue ${value.target} bound to exchange ${value.source}`);
-    });
-});
-
-/**
-* Handles incoming messages.
-*
-* @param message
-*/
-function handleMessage(message) {
-  var body = JSON.parse(message.content.toString("ascii"));
-  console.log(body)
-  if (body.indexId) {
-      sendRefreshNotification(body)
-  } else {
-      var eventMessage = {
-          "deviceId": body.deviceId,
-          "data": body.description,
-          "category": body.eventCategory
-      }
-      sendAlertNotification(eventMessage)
-  }
-
-  // After having processed the message we need to acknowledge it.
-  message.ack();
 }
 

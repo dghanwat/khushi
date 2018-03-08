@@ -163,6 +163,10 @@
 ============================================================================= */
 
 @media only screen and (max-width: 767px) {
+	.page-first-section {
+		top: -90px;
+		margin-bottom: -90px;
+   	}
 
 	#eut-main-header {
 		display: none;
@@ -244,6 +248,11 @@
 ============================================================================= */
 
 @media only screen and (max-width: 479px) {
+	.page-first-section {
+		top: -90px;
+		margin-bottom: -90px;
+   }
+   
 	#eut-main-header {
 		display: none;
 	}

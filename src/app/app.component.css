@@ -1,0 +1,21 @@
+.main {
+  width: 800px;
+  padding: 20px;
+}
+
+.footer {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+  margin-top:5px;
+}
+.bgd-alpha {
+  background: #ebebeb;
+}
+
+.padding-top-10 {
+  padding-top: 10px;
+}

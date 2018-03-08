@@ -1,0 +1,35 @@
+[
+  {
+    "id": "testuser1",
+    "firstName": "Dhananjay",
+    "lastName": " Ghanwat",
+    "email": "test@gmail.com",
+    "userType": "NORMAL",
+    "organizationId": "AGA"
+  },
+  {
+    "id": "testuser2",
+    "firstName": "Rupesh",
+    "lastName": "Deshmukh",
+    "email": "test@gmail.com",
+    "userType": "NORMAL",
+    "organizationId": "AGA"
+  },
+  {
+    "id": "testuser3",
+    "firstName": "Avanish",
+    "lastName": "Mishra",
+    "email": "test@gmail.com",
+    "userType": "NORMAL",
+    "organizationId": "AGA"
+  },
+  {
+    "id": "testuser4",
+    "firstName": "Sadanand",
+    "lastName": "Khandalkar",
+    "email": "test@gmail.com",
+    "userType": "NORMAL",
+    "organizationId": "AGA"
+  }
+  
+]

@@ -1,0 +1,64 @@
+{
+  "locationId": "111",
+  "locationName": "Manchester",
+  "devices": [
+    {
+      "deviceId": "1111",
+      "components": [
+        {
+          "name": "ticketPrinters",
+          "status": 0
+        },
+        {
+          "name": "cashMech",
+          "status": 1
+        },
+        {
+          "name": "rollPrinter",
+          "status": 2
+        }
+      ],
+      "events": [
+        {
+          "description": "Printer Failure",
+          "severity": 1,
+          "eventType": "Printer"
+        },
+        {
+          "description": "Comms Error",
+          "severity": 2,
+          "eventType": "Comms"
+        }
+      ]
+    },
+    {
+      "deviceId": "1112",
+      "components": [
+        {
+          "name": "ticketPrinters",
+          "status": 2
+        },
+        {
+          "name": "cashMech",
+          "status": 0
+        },
+        {
+          "name": "rollPrinter",
+          "status": 1
+        }
+      ],
+      "events": [
+        {
+          "description": "Out of Service",
+          "severity": 2,
+          "eventType": "213123"
+        },
+        {
+          "description": "Out of Roll Stock",
+          "severity": 1,
+          "eventType": "213123"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "locationId": "111",
+    "locationName": "Manchester",
+    "devices": [
+      {
+        "deviceId": "1111",
+        "status": 0,
+        "events": [
+          {
+            "description": "Printer Failure",
+            "severity": 1,
+            "eventType": "Printer"
+          },
+          {
+            "description": "Comms Error",
+            "severity": 2,
+            "eventType": "Comms"
+          }
+        ]
+      },
+      {
+        "deviceId": "1112",
+        "status": 1
+      },
+      {
+        "deviceId": "1113",
+        "status": 2
+      },
+      {
+        "deviceId": "1114",
+        "status": 2
+      }
+    ]
+  },
+  {
+    "locationId": "112",
+    "locationName": "Oxford",
+    "devices": [
+      {
+        "deviceId": "2111",
+        "status": 0,
+        "events": [
+          {
+            "description": "Out of Service",
+            "severity": 2,
+            "eventType": "213123"
+          },
+          {
+            "description": "Out of Roll Stock",
+            "severity": 1,
+            "eventType": "213123"
+          }
+        ]
+      },
+      {
+        "deviceId": "2112",
+        "status": 1
+      },
+      {
+        "deviceId": "2113",
+        "status": 2
+      },
+      {
+        "deviceId": "2114",
+        "status": 2,
+        "events": [
+          {
+            "description": "CCST Stock",
+            "severity": 0,
+            "eventType": "213123"
+          },
+          {
+            "description": "Credit Card Stock",
+            "severity": 0,
+            "eventType": "213123"
+          }
+        ]
+      }
+    ]
+  }
+]

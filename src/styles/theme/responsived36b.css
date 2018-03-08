@@ -1,0 +1,442 @@
+/* =========================================================================== */
+
+/* Tablet Landscape
+	/* - Container
+/* Tablet Portait
+	/* - Responsive Header
+	/* - Logo
+	/* - Main Menu
+	/* - Feature Section Content
+	/* - Feature Section Graphic
+	/* - Small Blog
+	/* - Background Image
+/* Mobile Landscape
+	/* - Hide Br Tag
+	/* - Large Blog
+	/* - Comment Form
+	/* - Call Out
+/* Mobile Portait
+
+/* =========================================================================== */
+
+
+
+
+/* Tablet Landscape
+============================================================================= */
+
+@media only screen and (max-width: 1200px) {
+
+	/* - Container
+	========================================================================= */
+    #eut-body.eut-boxed #eut-theme-wrapper {
+        width: 90%;
+    }
+    #eut-body.eut-boxed .eut-anchor-menu .eut-anchor-wrapper.eut-sticky {
+        width: 90%;
+    }
+	#eut-body.eut-boxed #eut-content.eut-right-sidebar .eut-content-wrapper,
+	#eut-body.eut-boxed #eut-content.eut-left-sidebar .eut-content-wrapper {
+		max-width: 90%;
+	}
+    body.eut-boxed #eut-theme-wrapper {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+}
+
+
+/* Tablet Portait
+============================================================================= */
+
+@media only screen and (max-width: 1023px) {
+
+	/* - Container
+	========================================================================= */
+	#eut-body.eut-boxed #eut-content.eut-right-sidebar .eut-content-wrapper,
+	#eut-body.eut-boxed #eut-content.eut-left-sidebar .eut-content-wrapper {
+		max-width: 100%;
+	}
+
+
+	/* - Responsive Header
+	========================================================================= */
+	#eut-main-header {
+		display: none;
+	}
+
+	#eut-responsive-header {
+		display: block !important;
+	}
+
+	/* - Logo
+	========================================================================= */
+	#eut-logo.eut-position-center,
+	#eut-logo.eut-position-center .eut-wrapper {
+		position: relative;
+		left: 0;
+	}
+
+	/* - Main Menu
+	========================================================================= */
+	#eut-main-menu,
+	#eut-bottom-header {
+		display: none;
+	}
+
+	/* - Feature Section Content
+	========================================================================= */
+	#eut-feature-section .eut-content {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+
+	/* - Feature Section Graphic
+	========================================================================= */
+	.eut-content.eut-align-left-center .eut-graphic,
+	.eut-content.eut-align-center-center .eut-graphic,
+	.eut-content.eut-align-right-center .eut-graphic {
+		position: relative;
+	}
+
+	/* - Small Blog
+	========================================================================= */
+	.eut-blog-small .eut-blog-item {
+		margin-bottom: 90px;
+	}
+
+	.eut-blog-small .eut-post-content,
+	.eut-blog-small .eut-media + .eut-post-content {
+		padding-left: 0;
+		overflow: visible;
+	}
+
+	.eut-blog-small .eut-media {
+		margin-bottom: 30px;
+		width: 100%;
+		padding-right: 0;
+	}
+
+	/* - Background Image
+	========================================================================= */
+	.eut-bg-image.eut-bg-tablet-sm-left-top {
+		background-position: left top;
+	}
+
+	.eut-bg-image.eut-bg-tablet-sm-left-center {
+		background-position: left center;
+	}
+
+	.eut-bg-image.eut-bg-tablet-sm-left-bottom {
+		background-position: left bottom;
+	}
+
+	.eut-bg-image.eut-bg-tablet-sm-center-top {
+		background-position: center top;
+	}
+
+	.eut-bg-image.eut-bg-tablet-sm-center-center {
+		background-position: center center;
+	}
+
+	.eut-bg-image.eut-bg-tablet-sm-center-bottom {
+		background-position: center bottom;
+	}
+
+	.eut-bg-image.eut-bg-tablet-sm-right-top {
+		background-position: right top;
+	}
+
+	.eut-bg-image.eut-bg-tablet-sm-right-center {
+		background-position: right center;
+	}
+
+	.eut-bg-image.eut-bg-tablet-sm-right-bottom {
+		background-position: right bottom;
+	}
+
+}
+
+
+/* Mobile Landscape
+============================================================================= */
+
+@media only screen and (max-width: 767px) {
+
+	#eut-main-header {
+		display: none;
+	}
+
+	#eut-responsive-header {
+		display: block !important;
+	}
+
+	/* - Hide Br Tag
+	========================================================================= */
+	br.hidden {
+		display: none;
+	}
+
+	/* - Large Blog
+	========================================================================= */
+	.eut-blog-large .eut-blog-item {
+		margin-bottom: 90px;
+	}
+
+	.eut-blog-large .eut-post-content {
+		padding-left: 0;
+	}
+
+	.eut-blog-large .eut-media {
+		margin-bottom: 30px;
+	}
+
+	.eut-blog-large ul.eut-post-meta {
+		position: static;
+		top: 0;
+		left: 0;
+		width: auto;
+		font-size: 0.813em;
+	}
+
+	.eut-blog-large ul.eut-post-meta:after {
+		display: none;
+	}
+
+	.eut-blog-large ul.eut-post-meta li {
+		display: inline-block;
+		margin-right: 10px;
+	}
+
+	/* - Comment Form
+	========================================================================= */
+	#eut-comment-form .eut-form-input {
+		width: 100%;
+		float: none;
+		margin-right: 0;
+	}
+
+	/* - Call Out
+	========================================================================= */
+	.eut-callout.eut-btn-right {
+		display: block;
+	}
+	.eut-callout.eut-btn-right .eut-callout-wrapper {
+		position: relative;
+		display: block;
+		vertical-align: top;
+		padding-right: 0;
+	}
+
+	.eut-callout.eut-btn-right .eut-button-wrapper {
+		display: block;
+		vertical-align: top;
+		max-width: 100%;
+		text-align: left;
+		margin-top: 30px;
+	}
+
+}
+
+
+/* Mobile Portait
+============================================================================= */
+
+@media only screen and (max-width: 479px) {
+	#eut-main-header {
+		display: none;
+	}
+
+	#eut-responsive-header {
+		display: block !important;
+	}
+}
+
+
+/* Print
+============================================================================= */
+@media print {
+
+	/* - Print General
+	========================================================================= */
+	@page {
+		margin: 3.5cm;
+	}
+	img {
+		max-height: 200px !important;
+		width: auto !important;
+	}
+	
+	video,audio,object,embed {
+		display: none;
+	}
+	
+	.page-break {
+		display: block;
+		page-break-before: always;
+	}
+
+	.no-print {
+		display: none;
+	}
+
+	p a:link:after,
+	p a:visited:after {
+		content:" [" attr(href) "] ";
+	}
+	.eut-element {
+		margin-bottom: 40px !important;
+	}
+
+	.vc_empty_space {
+		display: none;
+	}
+
+	.eut-animated-item {
+		opacity: 1;
+	}
+	/* - Print Header
+	========================================================================= */
+	#eut-header.eut-fixed #eut-main-header {
+		position: static;
+	}
+	#eut-header.eut-sticky-header.eut-advanced.hide #eut-main-header {
+		-webkit-transform: translateY(0) !important;
+		-moz-transform: translateY(0) !important;
+		transform: translateY(0) !important;
+	}
+	#eut-main-header .eut-logo .eut-wrapper img.eut-default {
+		display: block !important;
+	}
+	#eut-main-header .eut-logo .eut-wrapper img.eut-light,
+	#eut-main-header .eut-logo .eut-wrapper img.eut-dark,
+	#eut-main-header .eut-logo .eut-wrapper img.eut-sticky,
+	#eut-main-menu,
+	#eut-main-header .eut-header-elements-wrapper {
+   		display: none !important;
+	}
+	
+	#eut-anemos-sticky-header	{
+   		display: none !important;
+	}
+
+	/* - Print Main Content
+	========================================================================= */
+	#eut-content.eut-right-sidebar #eut-main-content,
+	#eut-content.eut-left-sidebar #eut-main-content {
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+		float: none;
+	}
+
+	#eut-content {
+		display: block;
+		page-break-after: always;
+	}
+
+	#eut-switcher-button,
+	#eut-sidebar,
+	#eut-footer,
+	.eut-back-top,
+	.eut-anchor-menu,
+	#eut-breadcrumbs {
+		display: none;
+	}
+
+	.eut-column-1-12,
+	.eut-column-5-12,
+	.eut-column-7-12,
+	.eut-column-11-12,
+	.eut-column-1-6,
+	.eut-column-1-5,
+	.eut-column-1-4,
+	.eut-column-1-2,
+	.eut-column-1-3,
+	.eut-column-2-3,
+	.eut-column-3-4,
+	.eut-column-4-5,
+	.eut-column-5-6,
+	.eut-column-1 {
+		width: 100%;
+	}
+
+	#eut-main-content .eut-column-1-12,
+	#eut-main-content .eut-column-5-12,
+	#eut-main-content .eut-column-7-12,
+	#eut-main-content .eut-column-11-12,
+	#eut-main-content .eut-column-1-6,
+	#eut-main-content .eut-column-1-5,
+	#eut-main-content .eut-column-1-4,
+	#eut-main-content .eut-column-1-2,
+	#eut-main-content .eut-column-1-3,
+	#eut-main-content .eut-column-2-3,
+	#eut-main-content .eut-column-3-4,
+	#eut-main-content .eut-column-4-5,
+	#eut-main-content .eut-column-5-6,
+	#eut-main-content .eut-column-1 {
+		border: none !important;
+	}
+
+
+	/* - Print Feature & Page Title
+	========================================================================= */
+	.eut-page-title .eut-subheading,
+	#eut-feature-section .eut-subheading,
+	.eut-page-title .eut-title,
+	#eut-feature-section .eut-title,
+	.eut-page-title .eut-description,
+	#eut-feature-section .eut-description {
+		opacity: 1;
+		-webkit-transition : none;
+		-moz-transition    : none;
+		-ms-transition     : none;
+		-o-transition      : none;
+		transition         : none;
+	}
+	.eut-page-title .eut-graphic,
+	#eut-feature-section .eut-graphic,
+	.eut-page-title .eut-btn,
+	#eut-feature-section .eut-btn {
+		display: none;
+	}
+
+	.eut-page-title,
+	.eut-page-title .eut-wrapper,
+	#eut-feature-section,
+	#eut-feature-section .eut-wrapper {
+		max-height: 150px;
+	}
+	.eut-content.eut-align-center-center,
+	.eut-content.eut-align-center-top,
+	.eut-content.eut-align-center-bottom {
+		text-align: left;
+	}
+
+	.eut-page-title .eut-subheading.eut-text-light,
+	.eut-page-title .eut-title.eut-text-light,
+	.eut-page-title .eut-description.eut-text-light,
+	#eut-feature-section .eut-subheading.eut-text-light,
+	#eut-feature-section .eut-title.eut-text-light,
+	#eut-feature-section .eut-description.eut-text-light {
+		color: #000000;
+	}
+	/* - Print Single Post
+	========================================================================= */
+	.eut-navigation-bar,
+	.eut-post-nav,
+	#eut-single-post-meta,
+	#eut-single-post-meta-sticky,
+	#eut-post-bar,
+	#eut-related-post,
+	#eut-comment-form,
+	#eut-comments {
+		display: none;
+	}
+	.eut-smallwidth .eut-container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+

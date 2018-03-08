@@ -1,0 +1,52 @@
+<div id="eut-login-modal" class="prepare-anim animate">
+	<div class="eut-modal-wrapper">
+		<div class="eut-modal-content">
+			<div class="eut-modal-item">
+				<div class="eut-login-modal">
+					<!-- Login form -->
+					<div class="eut-login-form eut-login-form-item eut-align-center" style="display: block;">
+						<div class="eut-login-form-title eut-h3 eut-with-line eut-align-center">Login to Anemos by Euthemians</div>
+						<form id="eut_login_form" action="http://euthemians.com/themes/anemos/" method="post">
+							<div class="eut-form-field">
+								<input class="eut-form-control required" name="eut_user_login" type="text" placeholder="Username *">
+							</div>
+							<div class="eut-form-field">
+								<input class="eut-form-control required" name="eut_user_pass" id="eut_user_pass" type="password" placeholder="Password *">
+							</div>
+							<div class="eut-form-field">
+								<input type="hidden" name="action" value="anemos_eutf_login_user">
+								<button class="btn eut-fullwidth-btn" data-loading-text="Loading..." type="submit">Login</button>
+								<a class="eut-reset-password-form-btn eut-link-text eut-text-hover-primary-1" href="#">Lost Password?</a>
+							</div>
+							<input type="hidden" id="_anemos_eutf_nonce_login" name="_anemos_eutf_nonce_login" value="8d62a352f6">
+							<input type="hidden" name="_wp_http_referer" value="/themes/anemos/homepage-v4/">
+						</form>
+						<div class="eut-form-errors eut-align-center eut-text-primary-1 eut-link-text"></div>
+					</div>
+					<!-- Lost Password form -->
+					<div class="eut-reset-password-form eut-login-form-item eut-align-center" style="display: none;">
+						<div class="eut-login-form-title eut-h3 eut-with-line eut-align-center">Reset Password</div>
+						<span class="eut-login-form-description eut-link-text">Enter the username or e-mail you used in your profile. A password reset link will be sent to you by email.</span>
+						<form id="eut_reset_password_form" action="http://euthemians.com/themes/anemos/" method="post">
+							<div class="eut-form-field">
+								<input class="eut-form-control required" name="eut_user_or_email" id="eut_user_or_email" type="text" placeholder="Username or E-mail">
+							</div>
+							<div class="eut-form-field">
+								<input type="hidden" name="action" value="anemos_eutf_reset_password_user">
+								<button class="btn eut-fullwidth-btn" data-loading-text="Loading..." type="submit">Get new password</button>
+							</div>
+							<input type="hidden" id="_anemos_eutf_nonce_password" name="_anemos_eutf_nonce_password" value="8d62a352f6">
+							<input type="hidden" name="_wp_http_referer" value="/themes/anemos/homepage-v4/">
+						</form>
+						<div class="eut-form-errors eut-align-center eut-text-primary-1 eut-link-text"></div>
+					</div>
+				</div>
+				<div class="eut-login-modal-footer eut-align-center">
+					<span class="eut-login-link eut-link-text">Already have an account?
+						<a class="eut-text-hover-primary-1 eut-login-form-btn" href="#">Login</a>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

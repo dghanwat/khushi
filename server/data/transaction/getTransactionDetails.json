@@ -1,0 +1,27 @@
+{
+    "id": "10",
+    "date": "2018-01-01 11:24:40",
+    "deviceId": "NRW81",
+    "status": "0",
+    "type": "Not Available",
+    "todRef": "Not Available",
+    "customerDetails": {
+      "cardNumber": "5301271523593010",
+      "cardHolder": "Rupesh Deshmukh",
+      "authCode": "021154",
+      "total": 12.800000190734863,
+      "cash": 0,
+      "change": 0,
+      "discount": 0,
+      "railCard": "NGC"
+    },
+    "ticketDetails": {
+      "from": "5426",
+      "to": "5379",
+      "routeCode": "00000",
+      "fareCode": "Not Available",
+      "adults": 2,
+      "children": 0,
+      "ccstTickets": 5
+    }
+}

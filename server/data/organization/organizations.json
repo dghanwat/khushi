@@ -1,0 +1,70 @@
+[
+{
+"id": "AGA",
+"name": "Abellio Greater Anglia"
+},
+{
+"id": "ARL",
+"name": "Arriva Rail London"
+},
+{
+"id": "ATW",
+"name": "Arriva Trains Wales"
+},
+{
+"id": "C2C",
+"name": "c2c"
+},
+{
+"id": "CH",
+"name": "Chiltern Railways"
+},
+{
+"id": "Emirates",
+"name": "Emirates"
+},
+{
+"id": "GTR",
+"name": "Govia Thameslink Railway"
+},
+{
+"id": "GWR",
+"name": "Great Western Railway"
+},
+{
+"id": "LMT",
+"name": "London Midland"
+},
+{
+"id": "RSH",
+"name": "Red Spotted Hanky"
+},
+{
+"id": "SEFT",
+"name": "Seft"
+},
+{
+"id": "SN",
+"name": "Southern"
+},
+{
+"id": "Stobart",
+"name": "Stobart"
+},
+{
+"id": "TPE",
+"name": "TransPennine Express"
+},
+{
+"id": "VIR",
+"name": "Virgin Trains"
+},
+{
+"id": "RUP",
+"name": "Test Organisation"
+},
+{
+"id": "TEST",
+"name": "Test Organisation"
+}
+]

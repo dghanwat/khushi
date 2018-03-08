@@ -1,0 +1,8 @@
+  {
+    "id": "testuser1",
+    "firstName": "Dhananjay",
+    "lastName": " Ghanwat",
+    "email": "test@gmail.com",
+    "userType": "NORMAL",
+    "organizationId": "AGA"
+  }

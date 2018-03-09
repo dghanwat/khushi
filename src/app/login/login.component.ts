@@ -30,7 +30,7 @@ export class LoginComponent implements AfterViewInit , OnInit {
             private constants: Constants,
             private slimLoadingBarService: SlimLoadingBarService) {
         if (this._authService.isUserAuthorized()) {
-            this._router.navigate(['/organisation/dashboard']);
+            this._router.navigate(['/dashboard']);
         }
 
         this.formState = new FormStateModel();
@@ -53,16 +53,6 @@ export class LoginComponent implements AfterViewInit , OnInit {
         this.formState.submitting = true;
         this.formState.submitError = false;
         this.slimLoadingBarService.start();
-        this._authService.login(this._loginRequest).subscribe((user) => {
-            this.messageService.sendMessage(this.constants.LOGIN_SUCCESS, '');
-            this.slimLoadingBarService.complete();
-            this._router.navigate(['/organisation/dashboard']);
-        }, (errorMessage: string) => {
-            this.formState.submitting = false;
-            this.formState.submitError = true;
-            this.formState.submitErrorMessage = errorMessage;
-            this.slimLoadingBarService.complete();
-        });
     }
 
     ngAfterViewInit() {

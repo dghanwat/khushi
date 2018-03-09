@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef } from '@angular/core';
-import { Router , ActivatedRoute , Params } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { InternalMessageService } from '../../services/internal.message.service';
 import { Constants } from '../../services/constants';
@@ -31,22 +31,40 @@ export class TopNavigationComponent implements OnInit {
     private constants: Constants,
     private activatedRoute: ActivatedRoute,
     private afAuth: AngularFireAuth) {
-      this.menus.push({
-        id: "home",
-        link: "/home",
-        displayText: "Home"
-      })
-      this.user = afAuth.authState;
-      this.afAuth.authState.subscribe(auth => {
-        if(auth) {
-          this.userName = auth;
-          console.log("User name from FB",this.userName)
-          console.log("User name Display",this.userName.displayName)
-        }
-      });
+    if (this._authService.isUserAuthorized()) {
+      this.userName = this._authService.getUser()
+
+    }
+    this.menus.push({
+      id: "home",
+      link: "/home",
+      displayText: "Home"
+    })
+    this.user = afAuth.authState;
+    this.afAuth.authState.subscribe(auth => {
+      if (auth) {
+        this.menus.push({
+          id: "dashboard",
+          link: "/dashboard",
+          displayText: "Dashboard"
+        })
+        // this._authService.getFacebookFriends(auth.providerData[0].uid).subscribe((friends) => {
+        //   console.log("Response from FB", friends)
+        // }, (errorMessage) => {
+        //   console.log("Response from FB", errorMessage)
+        // });
+        
+        this.userName = auth;
+        this._authService.login("", this.userName);
+        this._authService.setUser(this.userName)
+        console.log("User name from FB", this.userName)
+        console.log("User name Display", this.userName.displayName)
+        this._router.navigate(['/dashboard']);
+      }
+    });
   }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       this.urlPath = this.activatedRoute.snapshot.url.join('/');
     })
@@ -65,7 +83,7 @@ export class TopNavigationComponent implements OnInit {
   }
 
   getMobileMenuClass() {
-    if(this.showMobileMenu) {
+    if (this.showMobileMenu) {
       return "prepare-anim open";
     }
   }
@@ -76,6 +94,12 @@ export class TopNavigationComponent implements OnInit {
     this.userName = null;
     this._authService.logout();
     this._router.navigateByUrl('/');
+    this.menus = new Array();
+    this.menus.push({
+      id: "home",
+      link: "/home",
+      displayText: "Home"
+    })
   }
 
   updateMenuAfterLogin() {
@@ -85,15 +109,22 @@ export class TopNavigationComponent implements OnInit {
   }
 
   getHeaderCSS() {
-    if(this._router.routerState.snapshot.url.indexOf("login") != -1) {
+    if (this._router.routerState.snapshot.url.indexOf("login") != -1
+      || this._router.routerState.snapshot.url.indexOf("dashboard") != -1) {
       return "header-background"
     }
   }
 
   login() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+    this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider().addScope('user_friends')).then(f => {
+      sessionStorage.removeItem("fbAccessToken")
+      //console.log('Access token from Sign',f.credential.accessToken)
+      sessionStorage.setItem("fbAccessToken",f.credential.accessToken)
+      
+      
+    });
   }
 
-  
+
 
 }

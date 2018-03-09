@@ -19,7 +19,7 @@ export class HomeComponent implements AfterViewInit,OnInit {
     ngOnInit() {
         console.log("IN Home init");
         $("html").trigger("ngAfterViewInit", ["homepage"]);
-        $("html, body").animate({scrollTop: 2});
+        $("html, body").animate({scrollTop: 4});
     }
 
     ngAfterViewInit() {

@@ -50,6 +50,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { HomeModule } from './home/home.module';
 import { ErrorModule } from './error/error.module';
 import { LoginModule } from './login/login.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 
 export const firebaseConfig = {
@@ -91,7 +92,8 @@ export function appConfigProvider(config: AppConfig) {
     OwlNativeDateTimeModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    DashboardModule
   ],
   providers: [
     { provide: Http, useClass: ExtendedHttpService },

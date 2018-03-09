@@ -17,6 +17,7 @@ export class AuthService {
     private loggedInUserName = '';
     private _sessionAuthData: any;
     private apiURL: string;
+    private user: any;
 
     constructor(private config: AppConfig,
         private http: Http) {
@@ -32,9 +33,8 @@ export class AuthService {
 
         // Get the auth information from the session.
         this._sessionAuthData = JSON.parse(sessionStorage.getItem('authData'));
-
         // Check if auth information present with valid token.
-        if (this._sessionAuthData && this._sessionAuthData.token) {
+        if (this._sessionAuthData) {
             this._isAuthorized = true;
         }
 
@@ -69,7 +69,7 @@ export class AuthService {
 
         // Get the auth information from the session.
         this._sessionAuthData = JSON.parse(sessionStorage.getItem('authData'));
-
+        
         if (this._sessionAuthData && this._sessionAuthData.token && this._sessionAuthData.userId === userId) {
             return true;
         }
@@ -116,50 +116,8 @@ export class AuthService {
      *
      * @param loginRequest LoginRequestModel.
      */
-    login(loginRequest: LoginRequestModel): Observable<any> {
-        return Observable.create((subscriber: Subscriber<any>) => {
-
-            this.getAccessToken(loginRequest).subscribe(response => {
-                const accessTokenResponse = response.json();
-
-                console.log('Got response: ' + accessTokenResponse.access_token);
-
-                // If access token is returned from the service then try to get the user details.
-                if (accessTokenResponse && accessTokenResponse.access_token) {
-
-                    // Get the user details from the service.
-                    const dummyUser = {
-                        id: '',
-                        firstName: '',
-                        lastName: '',
-                        userType: '',
-                        organisationId: ''
-                    };
-
-                    this._authorizeUser(accessTokenResponse.access_token, dummyUser);
-                    this.getUserDetails(loginRequest.username, accessTokenResponse.access_token).subscribe(response => {
-                        const user = response.json();
-
-                        console.log(user);
-
-                        // Save the token and user information in session.
-                        this._authorizeUser(accessTokenResponse.access_token, user);
-
-                        // Finally mark the process as completed.
-                        subscriber.next(user);
-                        subscriber.complete();
-                    },
-                        err => {
-                            subscriber.error('Invalid username or password');
-                        });
-                } else {
-                    subscriber.error('Invalid username or password');
-                }
-            },
-                err => {
-                    subscriber.error('Invalid username or password');
-                });
-        });
+    login(token, user)  {
+        this._authorizeUser(token, user);
     }
 
     /**
@@ -220,7 +178,7 @@ export class AuthService {
             .catch(this.handleError);
     }
 
-    
+
     /**
      * Method to get service access token value from session and construct the access token param.
      *
@@ -260,21 +218,13 @@ export class AuthService {
      * @param userId String.
      */
     private _authorizeUser(token: string, user: any) {
-        const authData: ClientAuthDataModel = {
-            token: token,
-            userId: user.id,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            userType: user.userType,
-            organisation: user.organisationId
-        };
         // First remove old session Data and then add new
         this.logout();
         // Mark the flag as true.
         this._isAuthorized = true;
-
+        
         // Store the user information in session.
-        sessionStorage.setItem('authData', JSON.stringify(authData));
+        sessionStorage.setItem('authData', JSON.stringify(user));
     }
 
     /**
@@ -283,9 +233,40 @@ export class AuthService {
      * @param error any.
      */
     private handleError(error: any) {
+        console.log('Error',error);
         const errMsg = (error.message) ? error.message :
             error.status ? `${error.status} - ${error.statusText}` : 'Server error';
         console.error(errMsg);
         return Observable.throw(errMsg);
+    }
+
+    setUser(user) {
+        this.user = user
+    }
+
+    getUser() {
+        if(this._authorizeUser) {
+            this._sessionAuthData = JSON.parse(sessionStorage.getItem('authData'));
+            return this._sessionAuthData;
+        }
+        return this.user;
+    }
+
+    getFacebookFriends(uid) {
+        console.log('sessionStorage.getItem("fbAccessToken")',sessionStorage.getItem("fbAccessToken"))
+        return this.http.get('https://graph.facebook.com/v2.12/'+uid+'/friendlists?',
+        { params: this.constructAccessTokenParam(sessionStorage.getItem("fbAccessToken"))})
+        .map((res: any) => res)
+        .catch(this.handleError);
+    }
+
+    constructAccessTokenParam(token): URLSearchParams {
+
+        // Create URL parameter for access token.
+        const params: URLSearchParams = new URLSearchParams();
+        params.append('access_token', token);
+
+        // Retutn the access token parameter with value from session.
+        return params;
     }
 }

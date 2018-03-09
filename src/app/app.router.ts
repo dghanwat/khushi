@@ -14,6 +14,10 @@ export const routes = RouterModule.forRoot([
         component: HomeComponent
     },
     {
+        path: 'home',
+        component: HomeComponent
+    },
+    {
         path: 'login',
         component: LoginComponent
     },

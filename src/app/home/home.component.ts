@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import * as $ from 'jquery';
 
+
 @Component({
     moduleId: module.id,
     selector: 'home',
@@ -11,13 +12,18 @@ import * as $ from 'jquery';
     styleUrls: ['../../styles/components/home.css']
 })
 
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements AfterViewInit,OnInit {
     constructor(private _router: Router, private _authService: AuthService) {
     }
 
-    ngAfterViewInit() {
+    ngOnInit() {
+        console.log("IN Home init");
         $("html").trigger("ngAfterViewInit", ["homepage"]);
-        $("html, body").animate({scrollTop: 1});
+        $("html, body").animate({scrollTop: 2});
+    }
+
+    ngAfterViewInit() {
+      
     }
 
 

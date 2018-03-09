@@ -1,5 +1,5 @@
 <header id="eut-header" class="eut-fullwidth eut-overlapping" data-sticky="anemos" data-sticky-height="60" data-devices-sticky="yes"
-style=""> 
+style="" [ngClass]="getHeaderCSS()"> 
 <!-- background-color:#000 -->
     <div class="eut-wrapper clearfix">
         <!-- Header -->
@@ -9,11 +9,11 @@ style="">
                     <!-- Logo -->
                     <div class="eut-logo eut-position-left">
                         <div class="eut-wrapper">
-                            <a href="/">
-                            <img class="eut-default" src="/assets/wp-content//themes/anemos/images/logos/logo-default.png" alt="Anemos by Euthemians" data-no-retina="" width="273" height="40">
-                            <img class="eut-light" src="/assets/wp-content//themes/anemos/images/logos/logo-light.png" alt="Anemos by Euthemians" data-no-retina="" width="273" height="40">
-                            <img class="eut-dark" src="/assets/wp-content//themes/anemos/images/logos/logo-dark.png" alt="Anemos by Euthemians" data-no-retina="" width="273" height="40">
-                            <img class="eut-sticky" src="/assets/wp-content//themes/anemos/images/logos/logo-sticky.png" alt="Anemos by Euthemians" data-no-retina="" width="273" height="40">
+                            <a [routerLink]="['/']" >
+                            <img class="eut-default" src="/assets/wp-content//themes/anemos/images/logos/logo-default.png" alt="Khushi" data-no-retina="" width="273" height="40">
+                            <img class="eut-light" src="/assets/wp-content//themes/anemos/images/logos/logo-light.png" alt="Khushi" data-no-retina="" width="273" height="40">
+                            <img class="eut-dark" src="/assets/wp-content//themes/anemos/images/logos/logo-dark.png" alt="Khushi" data-no-retina="" width="273" height="40">
+                            <img class="eut-sticky" src="/assets/wp-content//themes/anemos/images/logos/logo-sticky.png" alt="Khushi" data-no-retina="" width="273" height="40">
                             </a>
                         </div>
                     </div>
@@ -23,11 +23,23 @@ style="">
                         <div class="eut-header-elements eut-position-left">
                             <div class="eut-wrapper">
                                 <ul>
-                                    <li class="eut-header-element">
-                                        <a [routerLink]="['/login']" [class.active]="'/login' | isRouteActive" class="eut-toggle-modal">
-                                            <span class="eut-item"><i class="eut-icon-user"></i></span>
+                                    <li class="eut-header-element" *ngIf="!userName">
+                                        <a (click)="login()"  [class.active]="'/login' | isRouteActive" class="eut-toggle-modal">
+                                            <span class="eut-item"><i class="fa fa-sign-in"></i></span>
                                         </a>
                                     </li>
+                                    <li class="eut-header-element" *ngIf="userName" style="padding-top: 20px;
+                                    padding-left: 10px;">
+                                            
+                                                    <img class="eut-circle" src="{{userName.photoURL}}" width="50" height="50">
+                                    </li>
+                                    <li class="eut-header-element" *ngIf="userName">
+                                            <a class="eut-toggle-modal"
+                                            (click)="logout()" >
+                                                <span class="eut-item"><i class="fa fa-sign-out"></i></span>
+                                            </a>
+                                    </li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -37,8 +49,10 @@ style="">
                     <nav id="eut-main-menu" class="eut-horizontal-menu eut-position-right eut-menu-type-classic eut-main-menu">
                         <div class="eut-wrapper">
                             <ul id="menu-main-menu" class="eut-menu">
-                                <li id="menu-item-1870" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1870">
-                                    <a href="#"><span class="eut-item">Home</span></a>
+                                <li *ngFor="let menu of menus" 
+                                class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a [routerLink]="['/' + menu.link]" ><span class="eut-item">{{menu.displayText}}</span></a>
+                                </li>
                             </ul>
                         </div>
                     </nav>
@@ -54,8 +68,8 @@ style="">
                     <!-- Logo -->
                     <div class="eut-logo eut-position-left">
                         <div class="eut-wrapper">
-                            <a href="../index.html">
-                            <img class="eut-logo-responsive" src="/assets/wp-content/themes/anemos/images/logos/logo-responsive.png" alt="Anemos by Euthemians" data-no-retina="" width="273" height="40">
+                            <a [routerLink]="['/home']" >
+                            <img class="eut-logo-responsive" src="/assets/wp-content/themes/anemos/images/logos/logo-responsive.png" alt="Khushi" data-no-retina="" width="273" height="40">
                             </a>
                         </div>
                     </div>
@@ -74,11 +88,23 @@ style="">
                         <div class="eut-header-elements eut-position-left">
                             <div class="eut-wrapper">
                                 <ul>
-                                    <li class="eut-header-element">
-                                        <a [routerLink]="['/login']" [class.active]="'/login' | isRouteActive" class="eut-toggle-modal">
-                                        <span class="eut-item"><i class="eut-icon-user"></i></span>
+                                    <li class="eut-header-element" *ngIf="!userName" >
+                                        <a (click)="login()" [class.active]="'/login' | isRouteActive" class="eut-toggle-modal">
+                                        <span class="eut-item"><i class="fa fa-sign-in"></i></span>
                                         </a>
                                     </li>
+                                    <li class="eut-header-element" *ngIf="userName" style="padding-top: 20px;
+                                    padding-left: 10px;">
+                                            
+                                                    <img class="eut-circle" src="{{userName.photoURL}}" width="50" height="50">
+                                    </li>
+                                    <li class="eut-header-element" *ngIf="userName">
+                                            <a class="eut-toggle-modal"
+                                            (click)="logout()" >
+                                                <span class="eut-item"><i class="fa fa-sign-out"></i></span>
+                                            </a>
+                                    </li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -96,25 +122,39 @@ style="">
                 <!-- Logo -->
                 <div class="eut-logo eut-position-left">
                     <div class="eut-wrapper">
-                        <a href="../index.html">
-                        <img class="eut-sticky" src="/assets/wp-content//themes/anemos/images/logos/logo-sticky.png" alt="Anemos by Euthemians" data-no-retina="" width="273" height="40">
+                        <a [routerLink]="['/home']" >
+                        <img class="eut-sticky" src="/assets/wp-content//themes/anemos/images/logos/logo-sticky.png" alt="Khushi" data-no-retina="" width="273" height="40">
                         </a>
                     </div>
                 </div>
                 <!-- End Logo -->
-                <div class="eut-page-title-wrapper eut-position-left">
+                <!-- <div class="eut-page-title-wrapper eut-position-left">
                     <span class="eut-title">Home</span>
-                </div>
+                </div> -->
                 <div class="eut-header-elements-wrapper eut-position-right">
                     <!-- Header Elements -->
                     <div class="eut-header-elements eut-position-left">
                         <div class="eut-wrapper">
                             <ul>
-                                <li class="eut-header-element">
-                                    <a [routerLink]="['/login']" [class.active]="'/login' | isRouteActive" class="eut-toggle-modal">
-                                        <span class="eut-item"><i class="eut-icon-user"></i></span>
+                                <li class="eut-header-element" *ngIf="!userName">
+                                    <a 
+                                    [class.active]="'/login' | isRouteActive" class="eut-toggle-modal"
+                                    (click)="login()" >
+                                        <span class="eut-item"><i class="fa fa-sign-in"></i></span>
                                     </a>
                                 </li>
+                                <li class="eut-header-element" *ngIf="userName" style="padding-top: 5px;
+                                    padding-left: 10px;">
+                                            
+                                                    <img class="eut-circle" src="{{userName.photoURL}}" width="50" height="50">
+                                    </li>
+                                <li class="eut-header-element" *ngIf="userName">
+                                        <a class="eut-toggle-modal"
+                                        (click)="logout()" >
+                                            <span class="eut-item"><i class="fa fa-sign-out"></i></span>
+                                        </a>
+                                </li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -143,9 +183,10 @@ style="">
                 <nav id="eut-anemos-sticky-menu" class="eut-horizontal-menu eut-position-right eut-menu-type-classic eut-main-menu">
                     <div class="eut-wrapper">
                         <ul id="menu-main-menu-1" class="eut-menu">
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1870">
-                                <a href="#"><span class="eut-item">Home</span></a>
-                            </li>
+                                <li *ngFor="let menu of menus" 
+                                class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a [routerLink]="['/' + menu.link]"  ><span class="eut-item">{{menu.displayText}}</span></a>
+                                </li>
                         </ul>
                     </div>
                 </nav>
@@ -169,19 +210,21 @@ style="width: 100%;">
         <div class="eut-hiddenarea-content">
             <div class="eut-menu-wrapper">
                 <ul id="menu-main-menu-2" class="eut-menu">
-                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1870">
-                        <a href="#"><span class="eut-item">Home</span></a>
+                        <li *ngFor="let menu of menus" 
+                        class="menu-item menu-item-type-custom menu-item-object-custom">
+                        <a [routerLink]="['/' + menu.link]" ><span class="eut-item">{{menu.displayText}}</span></a>
                     </li>
+                    
                 </ul>
             </div>
             <!-- Responsive social Header Elements -->
             <div class="eut-header-responsive-elements">
                 <div class="eut-wrapper">
                     <ul>
-                        <li class="eut-header-responsive-element"><a href="#" target="_blank"><span class="eut-item"><i class="fa fa-twitter"></i></span></a></li>
-                        <li class="eut-header-responsive-element"><a href="#" target="_blank"><span class="eut-item"><i class="fa fa-facebook"></i></span></a></li>
-                        <li class="eut-header-responsive-element"><a href="#" target="_blank"><span class="eut-item"><i class="fa fa-google-plus"></i></span></a></li>
-                        <li class="eut-header-responsive-element"><a href="#" target="_blank"><span class="eut-item"><i class="fa fa-pinterest"></i></span></a></li>
+                        <li class="eut-header-responsive-element"><a target="_blank"><span class="eut-item"><i class="fa fa-twitter"></i></span></a></li>
+                        <li class="eut-header-responsive-element"><a target="_blank"><span class="eut-item"><i class="fa fa-facebook"></i></span></a></li>
+                        <li class="eut-header-responsive-element"><a target="_blank"><span class="eut-item"><i class="fa fa-google-plus"></i></span></a></li>
+                        <li class="eut-header-responsive-element"><a target="_blank"><span class="eut-item"><i class="fa fa-pinterest"></i></span></a></li>
                     </ul>
                 </div>
             </div>

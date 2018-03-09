@@ -42,10 +42,24 @@ import { DeviceManagementService } from './services/devicemanagement.service';
 import { TransactionManagementService } from './services/transactionmanagement.service';
 import { ExtendedHttpService } from './services/extended.http.service';
 import { WindowRef } from './services/window.ref';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 
 import { HomeModule } from './home/home.module';
 import { ErrorModule } from './error/error.module';
 import { LoginModule } from './login/login.module';
+
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyAYNIE3nuQuRq8K77ZLae7IAkURqPuWa1c",
+  authDomain: "khushi-dev-1520577742681.firebaseapp.com",
+  databaseURL: "https://khushi-dev-1520577742681.firebaseio.com",
+  projectId: "khushi-dev-1520577742681",
+  storageBucket: "khushi-dev-1520577742681.appspot.com",
+  messagingSenderId: "446965655019"
+};
 
 export function appConfigProvider(config: AppConfig) {
   return () => config.load();
@@ -74,10 +88,13 @@ export function appConfigProvider(config: AppConfig) {
     SlimLoadingBarModule.forRoot(),
     NguiAutoCompleteModule,
     OwlDateTimeModule,
-    OwlNativeDateTimeModule
+    OwlNativeDateTimeModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [
-    {provide: Http, useClass: ExtendedHttpService },
+    { provide: Http, useClass: ExtendedHttpService },
     AUTH_PROVIDERS,
     EventNotificationService,
     WebSocketService,
@@ -95,8 +112,8 @@ export function appConfigProvider(config: AppConfig) {
     TransactionManagementService,
     LocationManagementService,
     OrganisationManagementService,
-    DeviceManagementService,
-    { provide: APP_INITIALIZER, useFactory: appConfigProvider, deps: [AppConfig], multi: true },
+    DeviceManagementService
+
   ],
   bootstrap: [
     AppComponent

@@ -1,4 +1,4 @@
-import { Component , AfterViewInit } from '@angular/core';
+import { Component , AfterViewInit, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -17,7 +17,7 @@ import * as $ from 'jquery';
     templateUrl: './login.component.html'
 })
 
-export class LoginComponent implements AfterViewInit {
+export class LoginComponent implements AfterViewInit , OnInit {
     formState: FormStateModel;
     loginForm: FormGroup;
 
@@ -66,6 +66,10 @@ export class LoginComponent implements AfterViewInit {
     }
 
     ngAfterViewInit() {
-        //$("html, body").animate({scrollTop: 1});
+        $("html, body").animate({scrollTop: 1});
+    }
+
+    ngOnInit() {
+        $("html, body").animate({scrollTop: 2});
     }
 }

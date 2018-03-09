@@ -36,3 +36,4 @@ testem.log
 Thumbs.db
 /src/assets/wp-includes
 /src/assets/wp-content
+/dist-dev

@@ -1,0 +1,322 @@
+/*
+ Theme Name:   Anemos Child Switcher
+ Theme URI:    http://themeforest.net/user/euthemians
+ Description:  Anemos Child Theme
+ Version:      1.0.0
+ Author:       Euthemians Team
+ Author URI:   http://euthemians.com
+ Template:     anemos
+*/
+
+/* Switcher Button */
+#eut-switcher-button {
+	position: fixed;
+	bottom: 20px;
+	left: 20px;
+	color: #ffffff;
+	z-index: 99998;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	cursor: pointer;
+	-webkit-transition : all .3s;
+	-moz-transition    : all .3s;
+	-ms-transition     : all .3s;
+	-o-transition      : all .3s;
+	transition         : all .3s;
+	-webkit-transform: scale(1);
+	-moz-transform:    scale(1);
+	-ms-transform:     scale(1);
+	-o-transform:      scale(1);
+	transform:         scale(1);
+}
+
+#eut-switcher-button:hover {
+	-webkit-transform: scale(1.2);
+	-moz-transform:    scale(1.2);
+	-ms-transform:     scale(1.2);
+	-o-transform:      scale(1.2);
+	transform:         scale(1.2);
+}
+
+#eut-switcher-button.hide {
+	-webkit-transform: translateY(150%);
+	-moz-transform:    translateY(150%);
+	-ms-transform:     translateY(150%);
+	-o-transform:      translateY(150%);
+	transform:         translateY(150%);
+}
+
+/* Switcher Overlay */
+.eut-switcher-overlay {
+	background-color: #000000;
+	position: fixed;
+	z-index: 99998;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition : all .3s;
+	-moz-transition    : all .3s;
+	-ms-transition     : all .3s;
+	-o-transition      : all .3s;
+	transition         : all .3s;
+}
+
+.eut-switcher-overlay.show {
+	opacity: 0.7;
+	visibility: visible;
+}
+
+/* Switcher */
+#eut-switcher {
+	position: fixed;
+	width: 300px;
+	background-color: #ffffff;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	z-index: 99999;
+	left: 20px;
+	bottom: 20px;
+	font-family: Poppins;
+	font-weight: 500;
+	font-style: normal;
+	font-size: 12px;
+	text-transform: none;
+	letter-spacing: 0px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	overflow: hidden;
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transition : all .5s;
+	-moz-transition    : all .5s;
+	-ms-transition     : all .5s;
+	-o-transition      : all .5s;
+	transition         : all .5s;
+	-webkit-transform: translateY(120%);
+	-moz-transform:    translateY(120%);
+	-ms-transform:     translateY(120%);
+	-o-transform:      translateY(120%);
+	transform:         translateY(120%);
+}
+
+#eut-switcher.show {
+	visibility: visible;
+	opacity: 1;
+	-webkit-transform: translateY(0);
+	-moz-transform:    translateY(0);
+	-ms-transform:     translateY(0);
+	-o-transform:      translateY(0);
+	transform:         translateY(0);
+	-webkit-transition-delay: .5s;
+	-moz-transition-delay:    .5s;
+	-ms-transition-delay:     .5s;
+	-o-transition-delay:      .5s;
+	transition-delay:         .5s;
+}
+
+#eut-switcher .eut-switcher-inner {
+	max-height: 70vh;
+	max-height: calc(100vh - 360px);
+	overflow-y: auto;
+}
+
+/* Switcher Header */
+#eut-switcher .eut-switcher-header .eut-switcher-img-wrapper {
+	width: 100%;
+	height: 180px;
+	overflow: hidden;
+}
+
+#eut-switcher .eut-switcher-header .eut-switcher-img-wrapper img {
+	display: block;
+	width: 100%;
+	-webkit-transform: scale(1);
+	-moz-transform:    scale(1);
+	-ms-transform:     scale(1);
+	-o-transform:      scale(1);
+	transform:         scale(1);
+	-webkit-transition : all 10s;
+	-moz-transition    : all 10s;
+	-ms-transition     : all 10s;
+	-o-transition      : all 10s;
+	transition         : all 10s;
+}
+
+#eut-switcher .eut-switcher-wrapper:hover .eut-switcher-header .eut-switcher-img-wrapper img {
+	-webkit-transform: scale(1.2);
+	-moz-transform:    scale(1.2);
+	-ms-transform:     scale(1.2);
+	-o-transform:      scale(1.2);
+	transform:         scale(1.2);
+}
+
+#eut-switcher .eut-purchase-btn {
+	line-height: 40px;
+	display: block;
+	text-align: center;
+	-webkit-transition : all .3s;
+	-moz-transition    : all .3s;
+	-ms-transition     : all .3s;
+	-o-transition      : all .3s;
+	transition         : all .3s;
+}
+
+#eut-switcher .eut-purchase-btn:hover {
+	background-color: #000000;
+}
+
+/* Switcher Element */
+#eut-switcher .eut-switcher-element {
+	text-align: center;
+	padding: 20px;
+	border-bottom: 1px solid #e9e9e9;
+}
+
+#eut-switcher .eut-switcher-title {
+	font-weight: 700;
+	color: #000000;
+	line-height: 24px;
+	display: block;
+	margin-bottom: 18px;
+	letter-spacing: 0.5px;
+}
+
+@media only screen and (max-width: 2000px) {
+	#eut-switcher .eut-switcher-element {
+		padding: 15px 20px;
+	}
+}
+
+
+/* Switcher Button */
+#eut-switcher .eut-switcher-btn:not(.eut-switcher-color) {
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	font-size: 10px;
+	margin: 0 3px 10px 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	border: 1px solid;
+	border-color: #B3B7BD;
+	color: #8E9299;
+	background-color: transparent;
+	-webkit-backface-visibility : hidden;
+	-moz-backface-visibility    : hidden;
+	-ms-backface-visibility     : hidden;
+	-webkit-transition : all .3s;
+	-moz-transition    : all .3s;
+	-ms-transition     : all .3s;
+	-o-transition      : all .3s;
+	transition         : all .3s;
+}
+
+#eut-switcher .eut-switcher-btn:not(.eut-switcher-color):hover {
+	color: #8E9299;
+	background-color: #ECEDF2;
+	border-color: #B3B7BD;
+}
+
+#eut-switcher .eut-switcher-btn:not(.eut-switcher-color).active {
+	color: #ffffff;
+	background-color: #BEC1C7;
+	border-color: #B3B7BD;
+}
+
+/* Switcher Small Button */
+#eut-switcher .eut-switcher-btn-sm {
+	width: 110px;
+}
+
+/* Switcher Large Button */
+#eut-switcher .eut-switcher-btn-lg {
+	width: 230px;
+}
+
+/* Switcher Color Pallete */
+#eut-switcher .eut-switcher-color {
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	border: none;
+	margin: 0px 3px 10px 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	background-color: #BABABA;
+}
+
+#eut-switcher .eut-switcher-color:hover,
+#eut-switcher .eut-switcher-color.active {
+	-webkit-box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.3);
+	-moz-box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.3);
+	box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.3);
+}
+
+#eut-switcher .eut-switcher-pallete-1 {
+	background-color: #f50057;
+}
+
+#eut-switcher .eut-switcher-pallete-2 {
+	background-color: #03A9F4;
+}
+
+#eut-switcher .eut-switcher-pallete-3 {
+	background-color: #F1B144;
+}
+
+#eut-switcher .eut-switcher-pallete-4 {
+	background-color: #97C945;
+}
+
+#eut-switcher .eut-switcher-pallete-5 {
+	background-color: #8E24AA;
+}
+
+#eut-switcher .eut-switcher-pallete-6 {
+	background-color: #304FFE;
+}
+
+/* Submit Button */
+#eut-switcher-form {
+	padding: 30px 20px;
+	text-align: center;
+}
+
+#eut-switcher-form input[type='submit'] {
+	display: inline-block;
+	height: 40px;
+	line-height: 40px;
+	font-size: 10px;
+	width: 210px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	color: #ffffff;
+	outline: 0;
+	-webkit-appearance: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-transition : all .3s;
+	-moz-transition    : all .3s;
+	-ms-transition     : all .3s;
+	-o-transition      : all .3s;
+	transition         : all .3s;
+}
+
+
+
+@media only screen and (max-width: 1200px) {
+	#eut-switcher,
+	#eut-switcher-button {
+		display: none;
+	}
+}
